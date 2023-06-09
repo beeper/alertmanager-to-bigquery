@@ -36,7 +36,17 @@ func getBigQueryTableInserter(cfg config.BigQueryConfig) (*bigquery.Inserter, er
 	}
 
 	dataset := client.Dataset(cfg.Dataset)
+	_, err = dataset.Metadata(context.Background())
+	if err != nil {
+		return nil, err
+	}
+
 	table := dataset.Table(cfg.Table)
+	_, err = table.Metadata(context.Background())
+	if err != nil {
+		return nil, err
+	}
+
 	return table.Inserter(), nil
 }
 
