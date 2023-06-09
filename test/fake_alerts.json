@@ -1,0 +1,11 @@
+{
+    "alerts": [
+        {
+            "status": "TESTING",
+            "labels": {
+                "alertname": "TestAlert",
+                "env": "test-env"
+            }
+        }
+    ]
+}
